@@ -648,4 +648,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/riomyoung/2340 Ball Bounce/ballbounce-v1.app
+  playerPath: /Users/riomyoung/Desktop/ballbounce-v1.app
