@@ -35,7 +35,7 @@ public class DragAndShoot : MonoBehaviour
     {
       startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
       startPoint.z = 15;
-      print("start position: " + startPoint);
+      // print("start position: " + startPoint);
     }
 
     // if mouse button is held

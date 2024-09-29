@@ -6,10 +6,14 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
   AudioSource audioSource;
+  public LogicScript logic;
+
+  
   // Start is called before the first frame update
   void Start()
   {
     audioSource = GetComponent<AudioSource>();
+    logic = GameObject.FindGameObjectWithTag("GameController").GetComponent<LogicScript>();
   }
 
   // Update is called once per frame
@@ -31,6 +35,8 @@ public class BallManager : MonoBehaviour
     if (gameObject != null)
     {
       Destroy(gameObject);
+      logic.RemoveBall();
+      
     }
   }
 }
