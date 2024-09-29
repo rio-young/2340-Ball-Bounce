@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LogicScript : MonoBehaviour
 {
@@ -8,11 +10,13 @@ public class LogicScript : MonoBehaviour
   public GameObject sampleObject;
   static int max_balls = 20;
   public int num_balls;
+  public List<GameObject> balls;
   
   // Start is called before the first frame update
   void Start()
   {
     num_balls = 1;
+    balls = new List<GameObject>();
   }
 
   // Update is called once per frame
@@ -48,5 +52,9 @@ public class LogicScript : MonoBehaviour
     num_balls -= 1;
     print("DESTROYED BALL");
     print("num balls: " + num_balls);
+  }
+
+  public void restart(){
+    SceneManager.LoadScene("SampleScene");
   }
 }

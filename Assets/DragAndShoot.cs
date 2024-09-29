@@ -19,6 +19,7 @@ public class DragAndShoot : MonoBehaviour
   Vector2 force;
   Vector3 startPoint;
   Vector3 endPoint;
+  public LogicScript logic;
 
 
   // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class DragAndShoot : MonoBehaviour
   {
     cam = Camera.main;
     tl = GetComponent<TrajectoryLine>();
+    logic = GameObject.FindGameObjectWithTag("GameController").GetComponent<LogicScript>();
   }
 
   // Update is called once per frame
@@ -56,6 +58,16 @@ public class DragAndShoot : MonoBehaviour
 
       // print("end position: " + endPoint);
       tl.EndLine();
+    }
+  }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (gameObject != null)
+    {
+      Destroy(gameObject);
+      logic.RemoveBall();
+      
     }
   }
 }
