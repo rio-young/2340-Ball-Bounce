@@ -7,6 +7,7 @@ public class BallManager : MonoBehaviour
 {
   AudioSource audioSource;
   public LogicScript logic;
+  bool calledStart = false; 
 
   
   // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class BallManager : MonoBehaviour
   {
     audioSource = GetComponent<AudioSource>();
     logic = GameObject.FindGameObjectWithTag("GameController").GetComponent<LogicScript>();
+    calledStart = true;
   }
 
   // Update is called once per frame
@@ -32,7 +34,7 @@ public class BallManager : MonoBehaviour
 
   private void OnTriggerEnter2D(Collider2D collision)
   {
-    if (gameObject != null)
+    if (gameObject != null && calledStart)
     {
       Destroy(gameObject);
       logic.RemoveBall();
